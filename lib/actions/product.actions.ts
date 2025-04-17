@@ -11,6 +11,7 @@ export async function getLatestProducts() {
     },
     take: LATEST_PRODUCTS_LIMIT,
   });
+
   return convertToPlainObject(data);
 }
 
