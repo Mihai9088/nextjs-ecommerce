@@ -2,15 +2,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signInDefaultValues } from "@/lib/constants";
+import { signUpDefaultValues } from "@/lib/constants";
 import Link from "next/link";
-import { signInWithCredentials } from "@/lib/actions/user.action";
+import { signUpUser } from "@/lib/actions/user.action";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
 
-const CredentialsSignInForm = () => {
-  const [data, action] = useActionState(signInWithCredentials, {
+const SignUpForm = () => {
+  const [data, action] = useActionState(signUpUser, {
     success: false,
     message: "",
   });
@@ -18,7 +18,7 @@ const CredentialsSignInForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
 
-  const SignInButton = () => {
+  const SignUpButton = () => {
     const { pending } = useFormStatus();
 
     return (
@@ -27,7 +27,7 @@ const CredentialsSignInForm = () => {
         className="w-full cursor-pointer"
         variant="default"
       >
-        {pending ? "Signing In..." : "Sign In"}
+        {pending ? "Submitting..." : "Sign Up"}
       </Button>
     );
   };
@@ -37,15 +37,26 @@ const CredentialsSignInForm = () => {
       <input type="hidden" name="callbackUrl" value={callbackUrl} />
       <div className="space-y-6">
         <div>
+          <Label htmlFor="name" className="mb-1">
+            Name
+          </Label>
+          <Input
+            id="name"
+            name="name"
+            type="text"
+            defaultValue={signUpDefaultValues.name}
+            autoComplete="name"
+          />
+        </div>
+        <div>
           <Label htmlFor="email" className="mb-1">
             Email
           </Label>
           <Input
             id="email"
             name="email"
-            required
-            type="email"
-            defaultValue={signInDefaultValues.email}
+            type="text"
+            defaultValue={signUpDefaultValues.email}
             autoComplete="email"
           />
         </div>
@@ -58,12 +69,25 @@ const CredentialsSignInForm = () => {
             name="password"
             required
             type="password"
-            defaultValue={signInDefaultValues.password}
+            defaultValue={signUpDefaultValues.password}
             autoComplete="current-password"
           />
         </div>
         <div>
-          <SignInButton />
+          <Label htmlFor="confirmPassword" className="mb-1">
+            Confirm Password
+          </Label>
+          <Input
+            id="confirmPassword"
+            name="confirmPassword"
+            required
+            type="password"
+            defaultValue={signUpDefaultValues.confirmPassword}
+            autoComplete="confirmPassword"
+          />
+        </div>
+        <div>
+          <SignUpButton />
         </div>
 
         {data && !data.success && (
@@ -71,9 +95,9 @@ const CredentialsSignInForm = () => {
         )}
 
         <div className="text-sm text-center text-muted-foreground">
-          Don&apos;t have an account?{" "}
-          <Link target="_self" className="link" href="/sign-up">
-            Sign Up
+          Already have an account?{" "}
+          <Link target="_self" className="link" href="/sign-in">
+            Sign In
           </Link>
         </div>
       </div>
@@ -81,4 +105,4 @@ const CredentialsSignInForm = () => {
   );
 };
 
-export default CredentialsSignInForm;
+export default SignUpForm;
