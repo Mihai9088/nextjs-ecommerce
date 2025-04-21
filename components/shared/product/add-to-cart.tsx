@@ -18,20 +18,25 @@ const AddToCart = ({ item }: { item: CartItem }) => {
       return;
     }
 
-    toast(`${item.name} added to the cart`, {
+    toast(res.message, {
       action: (
-        <button
-          className="bg-primary text-white hover:bg-gray-800"
+        <Button
+          className="bg-primary cursor-pointer text-white hover:bg-gray-800"
           onClick={() => router.push("/cart")}
         >
           Go to cart
-        </button>
+        </Button>
       ),
     });
   };
 
   return (
-    <Button className="w-full" type="button" onClick={handleAddToCart}>
+    <Button
+      className="w-full cursor-pointer"
+      type="button"
+      onClick={handleAddToCart}
+    >
+      <Plus />
       AddToCart
     </Button>
   );
