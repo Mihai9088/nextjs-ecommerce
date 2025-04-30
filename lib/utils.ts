@@ -90,15 +90,15 @@ export const formatDateTime = (dateString: Date) => {
     hour12: false,
   };
   const formattedDateTime: string = new Date(dateString).toLocaleString(
-    "de-DE",
+    "en-US",
     dateTimeOptions
   );
   const formattedDate: string = new Date(dateString).toLocaleString(
-    "de-DE",
+    "en-US",
     dateOptions
   );
   const formattedTime: string = new Date(dateString).toLocaleString(
-    "de-DE",
+    "en-US",
     timeOptions
   );
   return {
@@ -128,4 +128,9 @@ export function formUrlQuery({
     },
     { skipNull: true }
   );
+}
+
+const NUMBER_FORMATTER = new Intl.NumberFormat("de-DE");
+export function formatNumber(number: number) {
+  return NUMBER_FORMATTER.format(number);
 }
