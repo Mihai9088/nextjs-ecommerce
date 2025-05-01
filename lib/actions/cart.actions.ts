@@ -179,3 +179,18 @@ export async function removeItemFromCart(productId: string) {
     return { success: false, message: formatError(error) };
   }
 }
+
+export async function deleteOrder(id: string) {
+  try {
+    await prisma.order.delete({ where: { id } });
+
+    revalidatePath("/admin/orders");
+
+    return {
+      success: true,
+      message: "Order deleted successfully",
+    };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
+  }
+}
