@@ -41,47 +41,54 @@ A **modern, full-featured e-commerce application** built with the latest technol
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/username/repository-name.git
-cd repository-name
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/username/repository-name.git
+   cd repository-name
+   ```
 
-### 2️⃣ Install dependencies
-```bash
-npm install
+2. Install dependencies  
+   ```bash
+   npm install
+   ```
 
-### 3️⃣ Configure environment variables
-Create a `.env` file in the root folder and set your values:
+3. Configure environment variables  
+   Create a `.env` file in the root folder and set your values:  
+   ```env
+   DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/DATABASE_NAME
+   NEXTAUTH_SECRET=your-secret
+   STRIPE_SECRET_KEY=your-stripe-secret
+   PAYPAL_CLIENT_ID=your-paypal-client-id
+   UPLOADTHING_SECRET=your-uploadthing-secret
+   ```
 
-```env
-DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/DATABASE_NAME
-NEXTAUTH_SECRET=your-secret
-STRIPE_SECRET_KEY=your-stripe-secret
-PAYPAL_CLIENT_ID=your-paypal-client-id
-UPLOADTHING_SECRET=your-uploadthing-secret
+4. Run database migrations  
+   ```bash
+   npx prisma migrate dev
+   ```
 
-### 4️⃣ Run database migrations
-```bash
-npx prisma migrate dev
+5. Seed the database  
+   ```bash
+   npm run seed
+   ```
 
-### 5️⃣ Seed the database
-```bash
-npm run seed
+6. Start the development server  
+   ```bash
+   npm run dev
+   ```  
+   The app will be available at: **http://localhost:3000**
 
-### 6️⃣ Start the development server
-```bash
-npm run dev
+---
 
-# 👥 Demo Accounts
+## 👥 Demo Accounts
 
-**Admin:**
-```text
-Email: mita@yahoo.com
+**Admin:**  
+Email: mita@yahoo.com  
+Password: password  
+
+**User:**  
+Email: user@example.com  
 Password: password
 
-**User:**
-```text
-Email: user@example.com
-Password: password
 
 
