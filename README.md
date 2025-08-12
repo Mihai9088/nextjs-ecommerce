@@ -46,52 +46,42 @@ A **modern, full-featured e-commerce application** built with the latest technol
 git clone https://github.com/username/repository-name.git
 cd repository-name
 
-2. Install dependencies
-bash
-Copy
-Edit
+### 2️⃣ Install dependencies
+```bash
 npm install
-3. Configure environment variables
-Create a .env file in the root folder and set up your values:
 
-env
-Copy
-Edit
+### 3️⃣ Configure environment variables
+Create a `.env` file in the root folder and set your values:
+
+```env
 DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/DATABASE_NAME
 NEXTAUTH_SECRET=your-secret
 STRIPE_SECRET_KEY=your-stripe-secret
 PAYPAL_CLIENT_ID=your-paypal-client-id
 UPLOADTHING_SECRET=your-uploadthing-secret
-4. Run database migrations
-bash
-Copy
-Edit
+
+### 4️⃣ Run database migrations
+```bash
 npx prisma migrate dev
-5. Seed the database
-bash
-Copy
-Edit
+
+### 5️⃣ Seed the database
+```bash
 npm run seed
-6. Start the development server
-bash
-Copy
-Edit
+
+### 6️⃣ Start the development server
+```bash
 npm run dev
-The app will be available at: http://localhost:3000
 
-👥 Demo Accounts
-Admin:
+# 👥 Demo Accounts
 
-makefile
-Copy
-Edit
+**Admin:**
+```text
 Email: mita@yahoo.com
 Password: password
-User:
 
-pgsql
-Copy
-Edit
+**User:**
+```text
 Email: user@example.com
 Password: password
-📸 Screenshots
+
+
